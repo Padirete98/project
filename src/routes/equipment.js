@@ -1,6 +1,5 @@
 import express from 'express';
 import Equipment from '../models/Equipment.js';
-import axios from 'axios';
 
 const app = express.Router();
 

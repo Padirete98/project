@@ -51,6 +51,7 @@ const handleAccessoryChange = (e) => {
     }));
 };  
 
+//verificar conexion db
 const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -68,7 +69,7 @@ const handleSubmit = async (e) => {
     setError(false);
     
     try {
-        const response = await fetch('http://localhost:3000/project/equipment', {
+        const response = await fetch('http://localhost:3001/equipment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
