@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# Sistema de Gestión de Equipos de Cómputo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto es un sistema completo para la gestión de equipos de cómputo que incluye un frontend en React y un backend en Node.js con MongoDB.
 
-## Available Scripts
+## Características
 
-In the project directory, you can run:
+- ✅ Registro de equipos de cómputo
+- ✅ Gestión de accesorios
+- ✅ Validación de formularios
+- ✅ Interfaz moderna con Material-UI
+- ✅ Base de datos MongoDB
+- ✅ API REST completa
 
-### `npm start`
+## Requisitos Previos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js (versión 16 o superior)
+- MongoDB instalado y ejecutándose localmente
+- npm o yarn
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instalación
 
-### `npm test`
+1. **Clonar el repositorio**
+   ```bash
+   git clone <url-del-repositorio>
+   cd finalproject
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
 
-### `npm run build`
+3. **Configurar MongoDB**
+   - Asegúrate de que MongoDB esté instalado y ejecutándose en tu máquina
+   - El proyecto se conectará automáticamente a la base de datos `project` en `mongodb://localhost:27017/project`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Configurar variables de entorno**
+   Crea un archivo `.env` en la raíz del proyecto con el siguiente contenido:
+   ```
+   MONGODB_URI=mongodb://localhost:27017/project
+   PORT=5000
+   NODE_ENV=development
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Ejecución
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Opción 1: Ejecutar frontend y backend por separado
 
-### `npm run eject`
+1. **Iniciar el servidor backend**
+   ```bash
+   npm run server
+   ```
+   El servidor se ejecutará en `http://localhost:5000`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **En otra terminal, iniciar el frontend**
+   ```bash
+   npm start
+   ```
+   La aplicación React se ejecutará en `http://localhost:3000`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Opción 2: Ejecutar ambos simultáneamente (requiere concurrently)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Instalar concurrently globalmente**
+   ```bash
+   npm install -g concurrently
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. **Ejecutar ambos servicios**
+   ```bash
+   npm run dev
+   ```
 
-## Learn More
+## Uso
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Abre tu navegador y ve a `http://localhost:3000`
+2. Navega al formulario de registro de equipos
+3. Completa todos los campos requeridos
+4. Haz clic en "Registrar"
+5. Los datos se guardarán automáticamente en la base de datos MongoDB
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Estructura del Proyecto
 
-### Code Splitting
+```
+finalproject/
+├── src/
+│   ├── components/          # Componentes React
+│   │   ├── AddEquipment.js  # Formulario de registro
+│   │   ├── Menu.js         # Menú principal
+│   │   └── Auth.js         # Autenticación
+│   ├── backend/
+│   │   ├── models/         # Modelos de MongoDB
+│   │   │   └── Equipment.js
+│   │   └── routes/         # Rutas de la API
+│   │       └── equipment.js
+│   └── config/
+│       └── db.js           # Configuración de MongoDB
+├── server.js               # Servidor Express
+├── package.json
+└── README.md
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## API Endpoints
 
-### Analyzing the Bundle Size
+- `POST /api/equipment` - Crear nuevo equipo
+- `GET /api/equipment` - Obtener todos los equipos
+- `GET /api/equipment/:id` - Obtener equipo por ID
+- `PUT /api/equipment/:id` - Actualizar equipo
+- `DELETE /api/equipment/:id` - Eliminar equipo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Tecnologías Utilizadas
 
-### Making a Progressive Web App
+- **Frontend**: React, Material-UI, React Router
+- **Backend**: Node.js, Express.js
+- **Base de Datos**: MongoDB con Mongoose
+- **Herramientas**: dotenv, cors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Solución de Problemas
 
-### Advanced Configuration
+### Error de conexión a MongoDB
+- Verifica que MongoDB esté ejecutándose: `mongod`
+- Comprueba que la URL de conexión sea correcta en el archivo `.env`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Error de CORS
+- El servidor ya incluye configuración CORS para desarrollo
+- Verifica que el frontend esté haciendo peticiones a `http://localhost:5000`
 
-### Deployment
+### Puerto ocupado
+- Cambia el puerto en el archivo `.env` si el puerto 5000 está ocupado
+- Asegúrate de actualizar la URL en el frontend si cambias el puerto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contribución
 
-### `npm run build` fails to minify
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Licencia
+
+Este proyecto está bajo la Licencia ISC.
