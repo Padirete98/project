@@ -87,11 +87,10 @@ finalproject/
 │   │   ├── AddEquipment.js  # Formulario de registro
 │   │   ├── Menu.js         # Menú principal
 │   │   └── Auth.js         # Autenticación
-│   ├── backend/
-│   │   ├── models/         # Modelos de MongoDB
-│   │   │   └── Equipment.js
-│   │   └── routes/         # Rutas de la API
-│   │       └── equipment.js
+│   ├── models/         # Modelos de MongoDB
+│   │   └── Equipment.js
+│   ├── routes/         # Rutas de la API
+│   │   └── equipment.js
 │   └── config/
 │       └── db.js           # Configuración de MongoDB
 ├── server.js               # Servidor Express
@@ -104,7 +103,6 @@ finalproject/
 - `POST /api/equipment` - Crear nuevo equipo
 - `GET /api/equipment` - Obtener todos los equipos
 - `GET /api/equipment/:id` - Obtener equipo por ID
-- `PUT /api/equipment/:id` - Actualizar equipo
 - `DELETE /api/equipment/:id` - Eliminar equipo
 
 ## Tecnologías Utilizadas

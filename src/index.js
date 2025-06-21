@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import express from 'express';
+// import dotenv from 'dotenv';
+// import conectDB from './config/db.js';
+// import Auth from './components/Auth.js';
+import App from './App.js';
+import reportWebVitals from './reportWebVitals.js';
+
+
+// dotenv.config();
+// const app = express();
+
+// app.use(express.json());
+// app.use('/', Auth);
+// conectDB();
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
