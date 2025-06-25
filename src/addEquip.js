@@ -11,7 +11,7 @@ const navigate = useNavigate();
     <Typography variant="h4" color="secondary" gutterBottom>
         ¡Registro exitoso!
     </Typography>
-    <Button variant="outlined" color="secondary" onClick={() => navigate('/Menu')}>
+    <Button variant="outlined" color="secondary" onClick={() => navigate('/AddEquipment')} sx={{ mt: 2 }}>
         Volver al formulario
     </Button>
     </Container>

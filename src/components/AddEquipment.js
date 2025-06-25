@@ -96,7 +96,7 @@ const handleSubmit = async (e) => {
             });
             // Redirigir después de 2 segundos
             setTimeout(() => {
-                navigate('/Menu');
+                navigate('/AddEquipment');
             }, 2000);
         } else {
             setError(true);
@@ -142,7 +142,7 @@ const handleCloseSnackbar = () => {
         </Toolbar>
       </AppBar>
     
-<Container maxWidth="sm" sx={{ mt: 4, bgcolor: '#ffe4ec', p: 4, borderRadius: 2 }} margin="70px">
+<Container maxWidth="sm" sx={{ mt: 20, bgcolor: '#ffe4ec', p: 4, borderRadius: 2 }} margin="70px">
         <Typography variant="h5" gutterBottom color="secondary">Registro de Equipos de Cómputo</Typography>
         
         <form onSubmit={handleSubmit}>

@@ -1,4 +1,4 @@
-import index from './index.js';
+import index from './src/index.js';
 
 const PORT = process.env.PORT || 3000;
 

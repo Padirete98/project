@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './src/config/db.js';
 import equipmentRoutes from './src/routes/equipment.js';
+import reportRoutes from './src/routes/report.js';
 
 // Configurar variables de entorno
 dotenv.config();
@@ -20,7 +21,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Rutas
-app.use('/', equipmentRoutes);
+app.use(equipmentRoutes);
+
+//Rutas de reportes
+app.use(reportRoutes);
 
 // Ruta de prueba
 app.get('/', (req, res) => {

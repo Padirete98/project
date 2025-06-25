@@ -30,20 +30,6 @@ const handleAuth = (e) =>{//
 }
 return(
     <div>
-       {/*  <AppBar>
-            <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
-
-                <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                    Dashboard
-                </Typography>
-
-                <Button color="inherit">Mi perfil</Button>
-                <Button color="inherit">Ajustes</Button>
-                <Button color="inherit">Cerrar sesión</Button>
-                
-            </Toolbar>
-        </AppBar>
-         */}
         <AppBar>
             <Toolbar>
                 <Typography variant="h6"  sx={{ flexGrow: 1 }}>
@@ -51,7 +37,7 @@ return(
                 </Typography>           
             </Toolbar>
         </AppBar>
- <Container maxWidth="xs">
+ <Container maxWidth="xs"  sx={{ mt: 20, p: 4, borderRadius: 2 }}  >
         {}
         <Box 
             display="flex"

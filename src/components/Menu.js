@@ -32,7 +32,7 @@ const Menu = () => {
     <div>
       <AppBar >
         <Toolbar position='static' >
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" sx={{ flexGrow: 1 }} >
             <img src={Icono} style={logo_type} alt="Logo de la página web" />
           </Typography>
           <Button color="inherit" onClick={handleLogout}>
@@ -41,12 +41,12 @@ const Menu = () => {
         </Toolbar>
       </AppBar>
 
-      <Container>
+      <Container maxWidth="sm" sx={{ mt: 20, borderRadius: 2 }} >
           <Box 
-           p={4}
+           p={3}
           backgroundColor='#dcffcf'
           height={400}
-          width={600}
+          width={500}
           justify-content= 'center'
           align-items='start'
           flex-direction='center'
@@ -56,7 +56,7 @@ const Menu = () => {
             alignItems="center"
             justifyContent="center"
            >
-        <Typography variant="h5">Selecciona una opcion</Typography>
+        <Typography variant="h5" sx={{ mt: -10, borderRadius: 2 }}> Selecciona una opcion </Typography>
         <Button
         onClick={handleAddEquip}
             type="submit" 
