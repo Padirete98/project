@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import connectDB from './src/config/db.js';
 import equipmentRoutes from './src/routes/equipment.js';
 import reportRoutes from './src/routes/report.js';
+import searchReportRoutes from './src/routes/report.js';
+import viewEquipmentsRoutes from './src/routes/equipment.js';
 
 // Configurar variables de entorno
 dotenv.config();
@@ -25,6 +27,12 @@ app.use(equipmentRoutes);
 
 //Rutas de reportes
 app.use(reportRoutes);
+
+// Rutas de búsqueda de reportes
+app.use(searchReportRoutes);
+
+// Rutas de búsqueda de equipos
+app.use(viewEquipmentsRoutes);
 
 // Ruta de prueba
 app.get('/', (req, res) => {

@@ -5,7 +5,7 @@ const app = express.Router();
 
 //Buscar equipo en reporte por ID
 
-// Crear nuevo equipo
+// Crear nuevo reporte
 app.post('/report', async (req, res) => {
     try {
         const newReport = new Report(req.body);
@@ -24,11 +24,26 @@ app.post('/report', async (req, res) => {
         });
     }
 });
-
-
-
 // Obtener todos los reportes
 app.get('/report', async (req, res) => {
+    try {
+        const report = await Report.find().sort({ createdAt: -1 });
+        res.status(200).json({
+            success: true,
+            data: report
+        });
+    } catch (error) {
+        console.error('Error al obtener los reportes:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Error al obtener los reportes',
+            error: error.message
+        });
+    }
+});
+
+// Obtener todos los reportes
+app.get('/searchreport', async (req, res) => {
     try {
         const report = await Report.find().sort({ createdAt: -1 });
         res.status(200).json({

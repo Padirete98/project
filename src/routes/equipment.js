@@ -41,6 +41,23 @@ app.get('/equipment', async (req, res) => {
     }
 });
 
+app.get('/viewequipment', async (req, res) => {
+    try {
+        const equipment = await Equipment.find().sort({ createdAt: -1 });
+        res.status(200).json({
+            success: true,
+            data: equipment
+        });
+    } catch (error) {
+        console.error('Error al obtener equipos:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Error al obtener los equipos',
+            error: error.message
+        });
+    }
+});
+
 // Obtener un equipo por ID
 app.get('/equipment/:id', async (req, res) => {
     try {

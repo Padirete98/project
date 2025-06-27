@@ -28,8 +28,16 @@ const Menu = () => {
     navigate('/AddReport'); // ir a la ruta registro de informes
   };
 
+      const handleSearchReport = () => {
+    navigate('/SearchReport'); // ir a la ruta consulta de informes
+  };
+      const handleViewEquipments = () => {
+    navigate('/ViewEquipments'); // ir a la ruta consulta de equipos
+  };
+  
+
   return (
-    <div>
+    <div >
       <AppBar >
         <Toolbar position='static' >
           <Typography variant="h6" sx={{ flexGrow: 1 }} >
@@ -80,6 +88,7 @@ const Menu = () => {
         </Button>
 
         <Button
+        onClick={handleSearchReport}
             type="submit" 
             variant="outlined"
             color="primary"
@@ -90,6 +99,7 @@ const Menu = () => {
         </Button>
 
         <Button
+        onClick={handleViewEquipments}
             type="submit" 
             variant="outlined"
             color="primary"
